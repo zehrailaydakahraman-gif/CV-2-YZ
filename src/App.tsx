@@ -1,3 +1,10 @@
+Tamamdır Kahraman, şimdi tam olarak istediğin o netliği sağladım.
+
+"Sertifikalar & Diller" ana başlığın duruyor; onun altında koyu harflerle **"İngilizce"** (İngilizce versiyonda **"English"**) yazacak ve hemen altında sertifika ismin yer alacak. Gereksiz tekrarların hepsini ayıkladım.
+
+GitHub'daki `App.tsx` dosyasının tamamını seçip silerek bu yeni kodu yapıştırabilirsin:
+
+```tsx
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Linkedin, Instagram, Mail, MapPin, ExternalLink, ChevronDown, Briefcase, GraduationCap, User, Moon, Sun, Globe, Award } from 'lucide-react';
@@ -30,8 +37,8 @@ const translations = {
       eduTitle: 'Yeni Medya ve İletişim',
       eduSchool: 'Üsküdar Üniversitesi',
       eduDesc: 'İletişim Fakültesi bünyesinde dijital medya, iletişim kuramları, medya okuryazarlığı ve yeni medya teknolojileri üzerine eğitim görmekteyim.',
-      langTitle: 'Diller',
-      langDesc: 'İngilizce: English with the Code-Switching Method (Advanced Level)'
+      langTitle: 'İngilizce',
+      langDesc: 'English with the Code-Switching Method (Advanced Level)'
     },
     contact: {
       title: 'İletişime Geçin',
@@ -76,8 +83,8 @@ const translations = {
       eduTitle: 'New Media and Communication',
       eduSchool: 'Üsküdar University',
       eduDesc: 'I am studying digital media, communication theories, media literacy, and new media technologies within the Faculty of Communication.',
-      langTitle: 'Languages',
-      langDesc: 'English: English with the Code-Switching Method (Advanced Level)'
+      langTitle: 'English',
+      langDesc: 'English with the Code-Switching Method (Advanced Level)'
     },
     contact: {
       title: 'Get in Touch',
@@ -436,3 +443,4 @@ export default function App() {
     </div>
   );
 }
+```
