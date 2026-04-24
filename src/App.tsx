@@ -1,10 +1,3 @@
-Tamamdır Kahraman, şimdi tam olarak istediğin o netliği sağladım.
-
-"Sertifikalar & Diller" ana başlığın duruyor; onun altında koyu harflerle **"İngilizce"** (İngilizce versiyonda **"English"**) yazacak ve hemen altında sertifika ismin yer alacak. Gereksiz tekrarların hepsini ayıkladım.
-
-GitHub'daki `App.tsx` dosyasının tamamını seçip silerek bu yeni kodu yapıştırabilirsin:
-
-```tsx
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Linkedin, Instagram, Mail, MapPin, ExternalLink, ChevronDown, Briefcase, GraduationCap, User, Moon, Sun, Globe, Award } from 'lucide-react';
@@ -443,4 +436,3 @@ export default function App() {
     </div>
   );
 }
-```
