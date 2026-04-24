@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Linkedin, Instagram, Mail, MapPin, ExternalLink, ChevronDown, Briefcase, GraduationCap, User, Moon, Sun, Globe } from 'lucide-react';
+import { Linkedin, Instagram, Mail, MapPin, ExternalLink, ChevronDown, Briefcase, GraduationCap, User, Moon, Sun, Globe, Award } from 'lucide-react';
 
 const translations = {
   tr: {
@@ -17,6 +17,7 @@ const translations = {
       title: 'Özgeçmiş',
       exp: 'Deneyim',
       edu: 'Eğitim',
+      certs: 'Sertifikalar & Diller',
       present: 'GÜNÜMÜZ',
       tfTitle: 'Müşteri Memnuniyeti Bölümü',
       tfCompany: 'Türkiye Finans Genel Müdürlüğü',
@@ -28,7 +29,9 @@ const translations = {
       eduDate: 'DEVAM EDİYOR (3. SINIF)',
       eduTitle: 'Yeni Medya ve İletişim',
       eduSchool: 'Üsküdar Üniversitesi',
-      eduDesc: 'İletişim Fakültesi bünyesinde dijital medya, iletişim kuramları, medya okuryazarlığı ve yeni medya teknolojileri üzerine eğitim görmekteyim.'
+      eduDesc: 'İletişim Fakültesi bünyesinde dijital medya, iletişim kuramları, medya okuryazarlığı ve yeni medya teknolojileri üzerine eğitim görmekteyim.',
+      langTitle: 'Diller',
+      langDesc: 'İngilizce: English with the Code-Switching Method (Advanced Level)'
     },
     contact: {
       title: 'İletişime Geçin',
@@ -60,6 +63,7 @@ const translations = {
       title: 'Resume',
       exp: 'Experience',
       edu: 'Education',
+      certs: 'Certificates & Languages',
       present: 'PRESENT',
       tfTitle: 'Customer Satisfaction Department',
       tfCompany: 'Türkiye Finans Headquarters',
@@ -71,7 +75,9 @@ const translations = {
       eduDate: 'ONGOING (3RD YEAR)',
       eduTitle: 'New Media and Communication',
       eduSchool: 'Üsküdar University',
-      eduDesc: 'I am studying digital media, communication theories, media literacy, and new media technologies within the Faculty of Communication.'
+      eduDesc: 'I am studying digital media, communication theories, media literacy, and new media technologies within the Faculty of Communication.',
+      langTitle: 'Languages',
+      langDesc: 'English: English with the Code-Switching Method (Advanced Level)'
     },
     contact: {
       title: 'Get in Touch',
@@ -149,7 +155,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-50 font-sans selection:bg-stone-200 dark:selection:bg-stone-800 transition-colors duration-300">
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 dark:bg-stone-950/80 backdrop-blur-md border-b border-stone-200 dark:border-stone-800 shadow-sm py-4' : 'bg-transparent py-6'}`}>
+      <nav className={fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 dark:bg-stone-950/80 backdrop-blur-md border-b border-stone-200 dark:border-stone-800 shadow-sm py-4' : 'bg-transparent py-6'}}>
         <div className="max-w-5xl mx-auto px-6 flex justify-between items-center">
           <div className="font-serif text-xl font-medium tracking-tight">İZK.</div>
           
@@ -158,7 +164,7 @@ export default function App() {
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
-                className={`text-sm font-medium tracking-wide transition-colors ${activeSection === item.id ? 'text-stone-900 dark:text-stone-50' : 'text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-50'}`}
+                className={text-sm font-medium tracking-wide transition-colors ${activeSection === item.id ? 'text-stone-900 dark:text-stone-50' : 'text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-50'}}
               >
                 {item.label}
               </button>
@@ -202,7 +208,7 @@ export default function App() {
                 <button
                   key={item.id}
                   onClick={() => scrollTo(item.id)}
-                  className={`p-2 rounded-full ${activeSection === item.id ? 'bg-stone-200 dark:bg-stone-800 text-stone-900 dark:text-stone-50' : 'text-stone-500 dark:text-stone-400'}`}
+                  className={p-2 rounded-full ${activeSection === item.id ? 'bg-stone-200 dark:bg-stone-800 text-stone-900 dark:text-stone-50' : 'text-stone-500 dark:text-stone-400'}}
                   aria-label={item.label}
                 >
                   <item.icon size={18} />
@@ -315,22 +321,41 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Eğitim */}
-              <div>
-                <div className="flex items-center mb-8 text-stone-800 dark:text-stone-200">
-                  <GraduationCap className="mr-3" size={24} />
-                  <h3 className="text-xl font-medium">{t.resume.edu}</h3>
+              {/* Eğitim & Sertifikalar */}
+              <div className="space-y-16">
+                <div>
+                  <div className="flex items-center mb-8 text-stone-800 dark:text-stone-200">
+                    <GraduationCap className="mr-3" size={24} />
+                    <h3 className="text-xl font-medium">{t.resume.edu}</h3>
+                  </div>
+                  
+                  <div className="space-y-10">
+                    <div className="relative pl-8 border-l border-stone-200 dark:border-stone-700">
+                      <div className="absolute w-3 h-3 bg-stone-800 dark:bg-stone-200 rounded-full -left-[6.5px] top-1.5 transition-colors duration-300"></div>
+                      <span className="text-sm font-medium text-stone-500 dark:text-stone-400 tracking-wider">{t.resume.eduDate}</span>
+                      <h4 className="text-lg font-medium mt-1">{t.resume.eduTitle}</h4>
+                      <p className="text-stone-600 dark:text-stone-300 font-medium">{t.resume.eduSchool}</p>
+                      <p className="text-stone-500 dark:text-stone-400 mt-2 text-sm leading-relaxed">
+                        {t.resume.eduDesc}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                
-                <div className="space-y-10">
-                  <div className="relative pl-8 border-l border-stone-200 dark:border-stone-700">
-                    <div className="absolute w-3 h-3 bg-stone-800 dark:bg-stone-200 rounded-full -left-[6.5px] top-1.5 transition-colors duration-300"></div>
-                    <span className="text-sm font-medium text-stone-500 dark:text-stone-400 tracking-wider">{t.resume.eduDate}</span>
-                    <h4 className="text-lg font-medium mt-1">{t.resume.eduTitle}</h4>
-                    <p className="text-stone-600 dark:text-stone-300 font-medium">{t.resume.eduSchool}</p>
-                    <p className="text-stone-500 dark:text-stone-400 mt-2 text-sm leading-relaxed">
-                      {t.resume.eduDesc}
-                    </p>
+
+                <div>
+                  <div className="flex items-center mb-8 text-stone-800 dark:text-stone-200">
+                    <Award className="mr-3" size={24} />
+                    <h3 className="text-xl font-medium">{t.resume.certs}</h3>
+                  </div>
+                  
+                  <div className="space-y-10">
+                    <div className="relative pl-8 border-l border-stone-200 dark:border-stone-700">
+                      <div className="absolute w-3 h-3 bg-stone-800 dark:bg-stone-200 rounded-full -left-[6.5px] top-1.5 transition-colors duration-300"></div>
+                      <h4 className="text-lg font-medium mt-1">{t.resume.langTitle}</h4>
+                      <p className="text-stone-500 dark:text-stone-400 mt-2 text-sm leading-relaxed">
+                        {t.resume.langDesc}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
