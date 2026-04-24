@@ -155,7 +155,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-50 font-sans selection:bg-stone-200 dark:selection:bg-stone-800 transition-colors duration-300">
       {/* Navigation */}
-      <nav className={fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 dark:bg-stone-950/80 backdrop-blur-md border-b border-stone-200 dark:border-stone-800 shadow-sm py-4' : 'bg-transparent py-6'}}>
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 dark:bg-stone-950/80 backdrop-blur-md border-b border-stone-200 dark:border-stone-800 shadow-sm py-4' : 'bg-transparent py-6'}`}>
         <div className="max-w-5xl mx-auto px-6 flex justify-between items-center">
           <div className="font-serif text-xl font-medium tracking-tight">İZK.</div>
           
@@ -164,7 +164,7 @@ export default function App() {
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
-                className={text-sm font-medium tracking-wide transition-colors ${activeSection === item.id ? 'text-stone-900 dark:text-stone-50' : 'text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-50'}}
+                className={`text-sm font-medium tracking-wide transition-colors ${activeSection === item.id ? 'text-stone-900 dark:text-stone-50' : 'text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-50'}`}
               >
                 {item.label}
               </button>
@@ -208,7 +208,7 @@ export default function App() {
                 <button
                   key={item.id}
                   onClick={() => scrollTo(item.id)}
-                  className={p-2 rounded-full ${activeSection === item.id ? 'bg-stone-200 dark:bg-stone-800 text-stone-900 dark:text-stone-50' : 'text-stone-500 dark:text-stone-400'}}
+                  className={`p-2 rounded-full ${activeSection === item.id ? 'bg-stone-200 dark:bg-stone-800 text-stone-900 dark:text-stone-50' : 'text-stone-500 dark:text-stone-400'}`}
                   aria-label={item.label}
                 >
                   <item.icon size={18} />
